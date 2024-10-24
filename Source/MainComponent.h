@@ -151,7 +151,7 @@ private:
             true,
             buttonUp, 1.0f, {},
             buttonDown, 1.0f, {},
-            buttonUp, 1.0f, {} `
+            buttonUp, 1.0f, {}
         );
         addAndMakeVisible(*button);
 
