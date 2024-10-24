@@ -55,10 +55,25 @@ public:
     void resized() override
     {
         using namespace juce;
+
+        const float aspectRatio = 16.0f / 9.0f;  // Use the desired aspect ratio (16:9)
+        auto bounds = getLocalBounds();  // Adds 20 pixels of padding
+        int newWidth = bounds.getWidth();
+        int newHeight = static_cast<int>(newWidth / aspectRatio);
+
+        if (newHeight > bounds.getHeight())
+        {
+            newHeight = bounds.getHeight();
+            newWidth = static_cast<int>(newHeight * aspectRatio);
+        }
         
-        // Get the bounds and calculate scaling factor for proportional resizing
-        auto bounds = getLocalBounds().toFloat().reduced(20.0f);  // Adds 20 pixels of padding
-        float scaleFactor = bounds.getWidth() / 800.0f;  // Scale factor based on window width
+        auto gridBounds = juce::Rectangle<int>(0, 0, newWidth, newHeight);
+
+        // Set the new size while maintaining the aspect ratio
+        setSize(newWidth, newHeight);
+        
+        // Adjust the component layout as before
+        auto scaleFactor = newWidth / 800.0f;  // Use the initial width (800) as the base reference
 
         // Define the size for the buttons and labels
         const float buttonWidth = 60.0f * scaleFactor;
@@ -98,15 +113,18 @@ public:
             GridItem(*softButtons[7]).withWidth(buttonWidth).withHeight(buttonHeight),  // Soft 8
             GridItem(*softButtons[8]).withWidth(buttonWidth).withHeight(buttonHeight),  // Soft 9
             GridItem(*softButtons[9]).withWidth(buttonWidth).withHeight(buttonHeight),  // Soft 10
-            GridItem(), 
+            GridItem(),
  
             GridItem(*recordButton).withWidth(buttonWidth).withHeight(buttonHeight),    // Record
             GridItem(*stopButton).withWidth(buttonWidth).withHeight(buttonHeight),      // Stop
             GridItem(*playButton).withWidth(buttonWidth).withHeight(buttonHeight)       // Play
         };
 
+        grid.alignItems = juce::Grid::AlignItems::center;
+        grid.justifyItems = juce::Grid::JustifyItems::center;
+        
         // Apply the grid layout
-        grid.performLayout(bounds.toNearestInt());
+        grid.performLayout(gridBounds.toNearestInt());
 
         // Set label sizes and positions below buttons, using the grid layout
         setLabelPosition(loadButton, loadLabel, scaleFactor, labelFontSize);

@@ -64,19 +64,14 @@ public:
                                                           .findColour (juce::ResizableWindow::backgroundColourId),
                               DocumentWindow::allButtons)
         {
-            setUsingNativeTitleBar (true);
-            setContentOwned (new MainComponent(), true);
+            setUsingNativeTitleBar(true);
+            setContentOwned(new MainComponent(), true);
 
-           #if JUCE_IOS || JUCE_ANDROID
-            setFullScreen (true);
-           #else
-            setResizable (true, true);
-            centreWithSize (getWidth(), getHeight());
-           #endif
-
-            setResizeLimits(800, 450, 1920, 1080);  // Enforces the minimum and maximum sizes (16:9 aspect ratio)
+            // Set initial size and enforce aspect ratio (16:9)
+            setResizeLimits(800, 450, 1920, 1080);  // 16:9 ratio
             centreWithSize(800, 450);
-            setVisible (true);
+            setResizable(true, true); // Enable resizing
+            setVisible(true);
         }
 
         void closeButtonPressed() override
