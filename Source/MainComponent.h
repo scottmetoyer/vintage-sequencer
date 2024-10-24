@@ -86,7 +86,7 @@ public:
         grid.templateColumns = { Grid::TrackInfo(1_fr), Grid::TrackInfo(1_fr), Grid::TrackInfo(1_fr),
                                    Grid::TrackInfo(1_fr), Grid::TrackInfo(1_fr), Grid::TrackInfo(1_fr),
                                    Grid::TrackInfo(1_fr), Grid::TrackInfo(1_fr), Grid::TrackInfo(1_fr) };
-        // Add soft buttons to their respective grid cells without labels
+        
         grid.items = {
             GridItem(*softButtons[0]).withWidth(buttonWidth).withHeight(buttonHeight),  // Soft 1
             GridItem(*softButtons[1]).withWidth(buttonWidth).withHeight(buttonHeight),  // Soft 2
@@ -146,12 +146,12 @@ private:
     {
         button = std::make_unique<juce::ImageButton>(buttonName);
         button->setImages(
-            false,  // should be rescaled
-            true,   // preserve aspect ratio
-            true,   // should highlight on mouse over
-            buttonUp, 1.0f, {},  // normal image and opacity, no extra color overlay
-            buttonDown, 1.0f, {},  // down image and opacity, no extra color overlay
-            buttonUp, 1.0f, {}   // disabled image (use same as normal for now)
+            false,
+            true,
+            true,
+            buttonUp, 1.0f, {},
+            buttonDown, 1.0f, {},
+            buttonUp, 1.0f, {} `
         );
         addAndMakeVisible(*button);
 
