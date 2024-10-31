@@ -8,14 +8,32 @@
 
 namespace BinaryData
 {
-    extern const char*   button_png;
-    const int            button_pngSize = 7206;
+    extern const char*   Background_svg;
+    const int            Background_svgSize = 170388;
 
-    extern const char*   downButton_png;
-    const int            downButton_pngSize = 7206;
+    extern const char*   Function_Button_Pressed_svg;
+    const int            Function_Button_Pressed_svgSize = 988;
+
+    extern const char*   Function_Button_svg;
+    const int            Function_Button_svgSize = 989;
+
+    extern const char*   Slider_Knob_svg;
+    const int            Slider_Knob_svgSize = 1291;
+
+    extern const char*   Soft_Button_Pressed_svg;
+    const int            Soft_Button_Pressed_svgSize = 989;
+
+    extern const char*   Soft_Button_svg;
+    const int            Soft_Button_svgSize = 1006;
+
+    extern const char*   White_Button_Pressed_svg;
+    const int            White_Button_Pressed_svgSize = 991;
+
+    extern const char*   White_Button_svg;
+    const int            White_Button_svgSize = 989;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 2;
+    const int namedResourceListSize = 8;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

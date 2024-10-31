@@ -8,6 +8,7 @@
 
 #include <JuceHeader.h>
 #include "MainComponent.h"
+#include "BorderBoundsConstrainer.h"
 
 //==============================================================================
 class VintageSequencerApplication  : public juce::JUCEApplication
@@ -66,11 +67,17 @@ public:
         {
             setUsingNativeTitleBar(true);
             setContentOwned(new MainComponent(), true);
-
-            // Set initial size and enforce aspect ratio (16:9)
-            setResizeLimits(800, 450, 1920, 1080);  // 16:9 ratio
-            centreWithSize(800, 450);
-            setResizable(true, true); // Enable resizing
+           
+            double ratio = 25.0 / 8.0;
+            setSize(800.0, 800.0/ratio);
+          
+            constrainer = new BorderBoundsConstrainer();
+            constrainer->setBorder(getPeer()->getFrameSize());
+            constrainer->setSizeLimits(800, 800/ratio, 2400, 2400/ratio);
+            constrainer->setFixedAspectRatio(ratio);
+            setConstrainer(constrainer);
+            
+            setResizable(true, true);
             setVisible(true);
         }
 
@@ -80,6 +87,7 @@ public:
             // ask the app to quit when this happens, but you can change this to do
             // whatever you need.
             JUCEApplication::getInstance()->systemRequestedQuit();
+            delete(constrainer);
         }
 
         /* Note: Be careful if you override any DocumentWindow methods - the base
@@ -91,6 +99,7 @@ public:
 
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
+        BorderBoundsConstrainer* constrainer;
     };
 
 private:

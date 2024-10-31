@@ -5,10 +5,29 @@
               companyWebsite="scottmetoyer.com" companyEmail="scott@scottmetoyer.com">
   <MAINGROUP id="E1OM5A" name="VintageSequencer">
     <GROUP id="{32549E40-902D-2AD4-0695-207C64FE8D41}" name="Resources">
-      <FILE id="TjoA0E" name="button.png" compile="0" resource="1" file="../../Desktop/button.png"/>
-      <FILE id="TmFWRR" name="downButton.png" compile="0" resource="1" file="../../Desktop/downButton.png"/>
+      <FILE id="ZE9NE0" name="Background.svg" compile="0" resource="1" file="../../Desktop/SIQ-10/Images/Background.svg"/>
+      <FILE id="eNjYle" name="Function Button Pressed.svg" compile="0" resource="1"
+            file="../../Desktop/SIQ-10/Images/Function Button Pressed.svg"/>
+      <FILE id="rLPjZZ" name="Function Button.svg" compile="0" resource="1"
+            file="../../Desktop/SIQ-10/Images/Function Button.svg"/>
+      <FILE id="uEymcZ" name="Slider Knob.svg" compile="0" resource="1" file="../../Desktop/SIQ-10/Images/Slider Knob.svg"/>
+      <FILE id="yQehyw" name="Soft Button Pressed.svg" compile="0" resource="1"
+            file="../../Desktop/SIQ-10/Images/Soft Button Pressed.svg"/>
+      <FILE id="dt8Gyj" name="Soft Button.svg" compile="0" resource="1" file="../../Desktop/SIQ-10/Images/Soft Button.svg"/>
+      <FILE id="wdUgDQ" name="White Button Pressed.svg" compile="0" resource="1"
+            file="../../Desktop/SIQ-10/Images/White Button Pressed.svg"/>
+      <FILE id="NqMZh5" name="White Button.svg" compile="0" resource="1"
+            file="../../Desktop/SIQ-10/Images/White Button.svg"/>
     </GROUP>
     <GROUP id="{9F743754-EF77-93D4-EEE5-C3B244D8E677}" name="Source">
+      <FILE id="pVL2wG" name="BorderBoundsConstrainer.cpp" compile="1" resource="0"
+            file="Source/BorderBoundsConstrainer.cpp"/>
+      <FILE id="ctIX1U" name="BorderBoundsConstrainer.h" compile="0" resource="0"
+            file="Source/BorderBoundsConstrainer.h"/>
+      <FILE id="H8wlHH" name="SliderLookAndFeel.h" compile="0" resource="0"
+            file="Source/SliderLookAndFeel.h"/>
+      <FILE id="UQEASc" name="SliderLookAndFeel.cpp" compile="1" resource="0"
+            file="Source/SliderLookAndFeel.cpp"/>
       <FILE id="d9B3n4" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="uSQork" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="wYFLjt" name="MainComponent.cpp" compile="1" resource="0"
